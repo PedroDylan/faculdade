@@ -1,5 +1,3 @@
-number = int(input("Insira um inteiro: "))
-
 def calcula_fibonacci(x):
     
     if x ==0:
@@ -12,4 +10,5 @@ def calcula_fibonacci(x):
     f = calcula_fibonacci(x-1) + calcula_fibonacci(x-2)
     return f
 
-print(calcula_fibonacci(number))
+for i in range(12):
+    print(calcula_fibonacci(i))
