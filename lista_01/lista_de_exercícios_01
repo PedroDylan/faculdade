@@ -1,0 +1,384 @@
+Questões discursivas da lista 01-Fundamentos da programação
+professor Fábio José
+curso Ciências da computação do semestre 2022.2
+aluno Pedro Dylan Freires Fernandes
+
+Q01.
+	Algoritmo é um conjunto de instruções e informações com o intúito de realizar uma tarefa
+	
+Q02. 
+	O compilador é responsável por transformar o código que está escrito em uma linguagem compreensível para humanos em uma linguagem compreensível para o computador.
+	
+Q03.
+  	Um computador digital é composto por 5 partes principais:
+	1. Unidades de entrada e saída: responsáveis por receber as informações do operador e expôr os resultados ao mesmo no fim do processo
+	2. Unidade de memória: responsável por armazenar os dados de entrada, os resultados das operações aritméticas e fornecer informações para a unidade de saída
+	3. Unidade de controle: responsável por receber as informações da memória e repassar instruções e informações às outras partes do computador
+	4. Unidade lógica/aritmética (ULA): responsável por realizar todos os cálculos aritméticos e as decisões lógicas 
+	
+Q04.
+	Descrição narrativa: os algoritmos são expressos em linguagem natural formal 
+	Ex:
+	inicialmente pede-se ao usuario dois números, denominados a e b, então computa-se o produto entre os dois para este então ser exibido ao usuário
+	
+	Fluxograma convencional: os algoritmos são represnetados por um conjunto de formas geométricas conectadas por setas representando o fluxo de informação para as tomadas de decisão e operações lógicas(ver anexo 02 para exemplos)
+	Pseudocódigo: Os algoritmos são representados por uma forma de linguagem semelhante a algumas linguagens de programação, tornando-a rica em detalhes e a mais aceita das representações exemplificadas
+	Ex:
+	
+	  	programa {
+	funcao inicio() {
+		
+		real a,b,c,m
+		
+		escreva("digite 3 números inteiros")
+		leia(a)
+		leia(b)
+		leia(c)
+		
+		m = (a+b+c)/3
+		
+		escreva("\nA média é ",m, "\n")
+		
+	}
+}
+	
+	
+Q05.
+	As variáveis representam os valores e incógnitas que serão operadas pelo algoritmo e são responsáveis pela alocação física dos valores na memória do computador.
+	Ex: nome = string("banana"); podendo esta estar endereçada em qualquer lugar da memória, como o espaço 0 para b, 1 para a e assim por diante até 5 no último a 
+	
+Q06.
+	número_de_alunos = int(37)
+	temperatura = real(37.7258)
+	letra = char(n) == 110 nos código ASCII 
+	soma = ((2+2=5) == False); Neste exemplo o valor lógico de soma é True, pois se relaciona com uma sentença verdadeira(2+2 nã é 5)
+	 
+Q07.
+	nome = string("Pedro")
+	notas_dos_alunos = [2.5  , 3 , 7.5
+			      8   , 4 , 7.5 ]
+
+Q08. 
+	Aritméticos:
+	  soma: 2+2 = 4
+	  subtração: 5-3 = 2
+	  multiplicação: 3*2 = 6
+	  divisão: 8/4 = 2
+	  exponenciação: 2**4 = 16
+	  manutenção de sinal: +(-3) = -3
+	  inversão de sinal: -(-3) = 3
+	Relacionais:
+	  igual: 3 = 3
+	  diferente: 7 <> 2
+	  menor: 2 < 7
+	  menor ou igual: 2 <= 2; 3 <= 7
+	  maior: 7 > 3
+	  maior ou igual: 7 >= 7; 3 >= 2
+	Lógicos:
+	  p and q = p e q 
+	  p or q = p ou q
+	  not a and not e = â e ê 
+	  
+Q09.
+
+	portugol:
+
+		programa {
+		    
+		    inclua biblioteca Matematica --> mat
+		    
+			funcao inicio() {
+				real raiz,num, pot
+				
+				escreva("digite um inteiro")
+				leia (num)
+				
+				pot = mat.potencia(num, 2.0)
+				raiz = mat.raiz (num, 2.0)
+				
+				escreva("\nA raiz quadrada do número é ", raiz , " \n")
+				escreva("\nO quadrado do número é ", pot , " \n")
+				
+			}
+		}
+
+	python: 
+
+		number = int(input('insira um número'))
+
+		root = number**(1/2)
+		square = number**2
+
+		print('a raiz é {} e o quadrado é {}'.format(root,square))
+
+		  
+Q10.
+	  portugol:
+	  	
+	  	programa {
+	funcao inicio() {
+		
+		real a,b,c,m
+		
+		escreva("digite 3 números inteiros")
+		leia(a)
+		leia(b)
+		leia(c)
+		
+		m = (a+b+c)/3
+		
+		escreva("\nA média é ",m, "\n")
+		
+	}
+}
+
+	  
+	  python:
+	  	
+	  	n1 = int(input('insira o primeiro número'))
+		n2 = int(input('insira o segundo número'))
+		n3 = int(input('insira o terceiro número'))
+
+		med = (n1+n2+n3)/3
+
+		print('a média é {}'.format(med))
+			  
+Q11.
+
+	portugol:
+		programa {
+	funcao inicio() {
+		real preco, numero, resultado
+		
+		escreva("Digite o preço unitário:")
+		leia(preco)
+		
+		escreva("Digite o número de items:")
+		leia(numero)
+		
+		resultado = (preco*numero)
+		
+		escreva("O preço final é ", resultado, "\n")
+		
+		
+	}
+}
+
+	python:
+		preco = float(input('insira o valor decimal do preco'))
+		numero = int(input('insira a quantidade de produtos'))
+
+		total = preco*numero
+
+		print('o total é {}'.format(total))
+	  
+Q12.
+
+	portugol:
+		programa {
+    
+    inclua biblioteca Matematica --> mat
+    
+	funcao inicio() {
+		real a,b,c,r1,r2,delta
+		
+		escreva("Digite o coeficiente quadrático:")
+		leia(a)
+		
+		escreva("Digite o coeficiente linear:")
+		leia(b)
+		
+		escreva("Digite o coeficiente independente:")
+		leia(c)
+		
+		delta = b*b - 4*a*c
+		
+		se (delta < 0){
+		    escreva("a equação não tem raízes reais")
+		}
+		senao{
+		    se(a==0){
+		        escreva("a equação não é quadrática")
+		    }
+		    senao{
+		        r1 = (-b - mat.raiz(delta,2.0))/2*a
+                r2 = (-b + mat.raiz(delta,2.0))/2*a		
+                escreva("As raízes são: ", r1, " e ", r2)
+		    }
+		}
+		
+	}
+}
+
+	python:
+		a = int(input('insira o coeficiente líder diferente de 0'))
+		b = int(input('insira o coeficiente linear'))
+		c = int(input('insira o coeficiente independente'))
+
+		delta = b**2 - 4*a*c
+		r1 =0
+		r2 =0
+
+		if(delta < 0):
+		    print('a equação não tem soluções reais')
+		else:
+		    r1 = (-b - delta**(1/2))/(2*a)
+		    r2 = (-b + delta**(1/2))/(2*a)
+		    print('as raízes são {} e {}'.format(r1,r2))
+
+
+	  
+Q13.
+	portugol:
+		programa {
+	funcao inicio() {
+		real a,b,c
+		
+		escreva("Insira um número: ")
+		leia(a)
+		
+		escreva("Insira outro número:")
+		leia(b)
+		
+		c=0
+
+		c=a
+		a=b
+		b=c
+		
+		escreva("Os números são: ", a , " e ", b)
+		
+		
+	}
+}
+
+		
+	python:
+		a = int(input('insira um número'))
+		b = int(input('insira outro número'))
+
+		c=0
+
+		c=a
+		a=b
+		b=c
+
+		print(a,b)
+			  
+Q14. 
+
+	portugol:
+		programa {
+		funcao inicio() {
+		    real a1,n,an,r
+		    
+		    escreva("Insira uma posição:")
+		    leia(n)
+		    
+		    escreva("insira um valor inicial:")
+		    leia(a1)
+		    
+		    escreva("insira uma razão:")
+		    leia(r)
+		    
+		    an = a1 + (n-1)*r
+		    
+		escreva("O número nessa posição é: ",an)	    
+		
+
+		}
+	}
+
+	python:
+		r = int(input('insira a razão'))
+		n = int(input('insira a posição'))
+		a1 = int(input('insira o primeiro termo'))
+
+		an = a1 + (n-1)*r
+
+		print('an é igual a {}'.format(an))
+			  
+Q15.
+
+	portugol:
+		programa {
+    
+		    inclua biblioteca Matematica --> mat  
+		    
+			funcao inicio() {
+			    real a1,n,an,r
+			    
+			    escreva("Insira uma posição:")
+			    leia(n)
+			    
+			    escreva("insira um valor inicial:")
+			    leia(a1)
+			    
+			    escreva("insira uma razão:")
+			    leia(r)
+			    
+			    an = a1*mat.potencia(r,n-1)
+			    
+			    escreva("O número nessa posição é: ",an)	   
+			}
+		}
+
+	python:
+		r = int(input('insira a razão'))
+		n = int(input('insira a posição'))
+		a1 = int(input('insira o primeiro termo'))
+
+		an = a1*(r**(n-1))
+
+		print('an é igual a {}'.format(an))
+			  
+			  
+			  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	   
+	  
+			
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
