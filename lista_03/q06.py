@@ -1,5 +1,6 @@
 notas_classe = []
-for i in range(10):
+numero_alunos = 1
+for i in range(numero_alunos):
     notas_aluno = []
     for i in range(3):
         x = float(input("Insira uma nota semestral: "))
@@ -17,7 +18,7 @@ def calcula_media_turma(lista):
     sum = 0
     for x in lista:
         sum += calcula_media_aluno(x)
-    return sum/10
+    return sum/numero_alunos
       
 def situacao_acad(lista):
     if calcula_media_aluno(lista) >= 7:
