@@ -1,4 +1,4 @@
-numero_pessoas = 5
+numero_pessoas = 10
 idades = []
 for i in range(numero_pessoas):
     x = int(input("Insira o ano de nascimento :"))  

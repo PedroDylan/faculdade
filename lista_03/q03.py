@@ -10,5 +10,5 @@ def calcula_fibonacci(x):
     f = calcula_fibonacci(x-1) + calcula_fibonacci(x-2)
     return f
 
-for i in range(12):
+for i in range(13):
     print(calcula_fibonacci(i))
