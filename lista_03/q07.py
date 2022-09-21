@@ -1,4 +1,4 @@
-numero_pessoas = 2
+numero_pessoas = 5
 imcs = []
 for i in range(numero_pessoas):
     x = float(input("Insira a altura: "))

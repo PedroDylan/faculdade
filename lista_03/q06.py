@@ -1,5 +1,5 @@
 notas_classe = []
-numero_alunos = 1
+numero_alunos = 10
 for i in range(numero_alunos):
     notas_aluno = []
     for i in range(3):
