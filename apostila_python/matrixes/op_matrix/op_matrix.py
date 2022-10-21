@@ -33,12 +33,19 @@ class Matrix:
         dummy_list = list(map(self._add_list,self.body,other.body))
         return Matrix(dummy_list[0],dummy_list[1],dummy_list[2])
 
+    def _transpose(self):
+        l1 = self.c1
+        l2 = self.c2
+        l3 = self.c3
+        return Matrix(l1,l2,l3)
+
     def mult_mat(self,other):
         dummy_list = [[],[],[]]
+        other_t = other._transpose()
 
         for i in range(len(self.body)):
-            for j in range(len(other.body)):
-                dummy_list[i].append(self._weird_sum(self.body[i],other.body[j]))
+            for j in range(len(other_t.body)):
+                dummy_list[i].append(self._weird_sum(self.body[i],other_t.body[j]))
 
         return Matrix(dummy_list[0],dummy_list[1],dummy_list[2])
 

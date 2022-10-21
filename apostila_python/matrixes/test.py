@@ -11,9 +11,9 @@ class TestSum(unittest.TestCase):
         self.assertEqual(result,mt3)
 
     def test_result_mult(self):
-        mt1 = op_matrix.Matrix([1,2,3],[1,2,3],[1,2,3])
-        mt2 = op_matrix.Matrix([2,3,4],[2,3,4],[2,3,4])
-        mt3 = op_matrix.Matrix([20,20,20],[20,20,20],[20,20,20])
+        mt1 = op_matrix.Matrix([1,0,0],[0,1,0],[0,0,1])
+        mt2 = op_matrix.Matrix([1,0,0],[0,1,0],[0,0,1])
+        mt3 = op_matrix.Matrix([1,0,0],[0,1,0],[0,0,1])
         result = mt1.mult_mat(mt2)
         self.assertEqual(result,mt3)
 
