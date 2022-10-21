@@ -20,13 +20,6 @@ class Matrix:
 
     def _weird_sum(self,l1,l2):
         return sum(self._mult_list(l1,l2))
-        
-    def _transpose(self):
-        c0 = [self.body[0][0],self.body[0][1],self.body[0][2]]
-        c1 = [self.body[1][0],self.body[1][1],self.body[1][2]]
-        c2 = [self.body[2][0],self.body[2][1],self.body[2][2]]
-        
-        return Matrix(c0,c1,c2)
     
     def add_mat(self,other):
         dummy_list = list(map(self._add_list,self.body,other.body))
@@ -34,14 +27,10 @@ class Matrix:
 
     def mult_mat(self,other):
         dummy_list = [[],[],[]]
-        other_t = other._transpose()
 
         for i in range(len(self.body)):
             for j in range(len(other.body)):
                 dummy_list[i].append(self._weird_sum(self.body[i],other.body[j]))
-
-
-
 
         return Matrix(dummy_list[0],dummy_list[1],dummy_list[2])
 
