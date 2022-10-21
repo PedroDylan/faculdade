@@ -6,6 +6,14 @@ class Matrix:
         self.c2 = [list1[1],list2[1],list3[1]]
         self.c3 = [list1[2],list2[2],list3[2]]
 
+    def __eq__(self,other) -> bool:
+        if(isinstance(self,Matrix)) and (isinstance(other,Matrix)):
+            if self.body[0] == other.body[0] and self.body[1] == other.body[1] and self.body[2] == other.body[2]:
+                return True
+            else:
+                return False
+        
+
     def _add(self,x,y):
         return x+y
 
@@ -39,12 +47,16 @@ class Matrix:
         print(self.body)
     
         
-l1 = [1,1,1]
-l2 = [1,1,1]
-l3 = [1,1,1]
+l1 = [1,2,3]
+l2 = [1,2,3]
+l3 = [1,2,3]
+
+l4 = [2,3,4]
+l5 = [2,3,4]
+l6 = [2,3,4]
 
 mt1 = Matrix(l1,l2,l3)
-mt2 = Matrix(l1,l2,l3)
+mt2 = Matrix(l4,l5,l6)
 
 mt3 = mt1.mult_mat(mt2)
 mt3.represent()
