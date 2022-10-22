@@ -1,3 +1,6 @@
+from tkinter import E
+
+
 class Matrix:
     def __init__(self,list1,list2,list3) -> None:
         self.body = [list1,list2,list3]
@@ -13,7 +16,6 @@ class Matrix:
             else:
                 return False
         
-
     def _add(self,x,y):
         return x+y
 
@@ -29,15 +31,24 @@ class Matrix:
     def _weird_sum(self,l1,l2):
         return sum(self._mult_list(l1,l2))
     
-    def add_mat(self,other):
-        dummy_list = list(map(self._add_list,self.body,other.body))
-        return Matrix(dummy_list[0],dummy_list[1],dummy_list[2])
-
     def _transpose(self):
         l1 = self.c1
         l2 = self.c2
         l3 = self.c3
         return Matrix(l1,l2,l3)
+
+    def _det2(self,l1,l2):
+        det = l1[0]*l2[1] - l1[1]*l2[0]
+        return det
+    
+    def determinant(self):
+        
+        
+        return
+
+    def add_mat(self,other):
+        dummy_list = list(map(self._add_list,self.body,other.body))
+        return Matrix(dummy_list[0],dummy_list[1],dummy_list[2])
 
     def mult_mat(self,other):
         dummy_list = [[],[],[]]
