@@ -1,0 +1,48 @@
+x = 7 + 3*6/2 -1
+
+inicialmente será feita a multiplicação:
+
+x = 7 + 18/2 -1
+
+divisão:
+
+x = 7 + 9 -1
+
+depois as somas e subtrações em ordem de leitura
+
+x = 16-1
+x=15
+
+x = 2%2 + 2*2 -2/2
+
+inicialmente será feito o módulo:
+
+x = 1 + 2*2 -2/2
+
+multiplicação:
+
+x = 1 + 4 -2/2
+
+divisão:
+
+x = 1 + 4 -1 
+
+depois as somas e subtrações em ordem de leitura
+x = 5 - 1
+x = 4
+
+x = (3 * 9 * (3 + (9*3/(3))))
+
+serão feitas as operações de acordo com a ordem interna dos parênteses
+
+x = (3 * 9 * (3 + (9*3/3)))
+
+x = (3 * 9 * (3 + (27/3)))
+
+x = (3 * 9 * (3 + (9)))
+
+x = (3 * 9 * (12))
+
+x = (27*12)
+
+x = 324
