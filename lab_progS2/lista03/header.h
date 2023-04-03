@@ -1,20 +1,25 @@
+void troca(int *a, int *b){
+    int dummy = *a;
+    *a = *b;
+    *b = dummy;
+}
+
 void ref_sort(int array[], int size){
     int i,j,dummy;
 
-    /*Organizando o array*/
     for (j = 0; j < size-1; j++)
     {
         for (i = j+1; i < size ; i++)
         {
             if (array[i] < array[j])
             {
-                dummy = array[i];
-                array[i] = array[j];
-                array[j] = dummy;
+                troca(&array[i],&array[j]);
             }
         }
     }
 }
+
+
 
 void bubbleSort(int array[],int size){
     int dummy;
@@ -22,9 +27,7 @@ void bubbleSort(int array[],int size){
     for(int pass = 0; pass <size-1 ; pass++){
         for(int i = 0; i < size-1; i++){
             if(array[i] > array[i+1]){
-                dummy = array[i];
-                array[i] = array[i+1];
-                array[i+1] = dummy;
+                troca(&array[i], &array[i+1]);
             }
         }
     }
