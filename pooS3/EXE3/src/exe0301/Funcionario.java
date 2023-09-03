@@ -12,7 +12,6 @@ public class Funcionario {
 	
 	public Funcionario() {
 		id = contador++;
-		
 	}
 	
 	public double getSalario() {
@@ -51,4 +50,14 @@ public class Funcionario {
 	public void getId() {
 		System.out.println("Identificador: " + this.id);
 	}
+
+	public void tirarFerias(int dias) {
+		System.out.println(this.nome + "Está tirando " + dias + " dias de férias.");
+	}
+	
+	public void tirarFerias() {
+		System.out.println(this.nome + "Está tirando 30 dias de férias");
+	}
 }
+
+	
