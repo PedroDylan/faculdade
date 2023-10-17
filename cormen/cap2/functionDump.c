@@ -1,3 +1,7 @@
+#include "functionDump.h"
+#include <stdio.h>
+#include <stdlib.h>
+
 void printArray(int array[], int size){
     for (int i = 0; i<size;i++){
         printf("%i\n",array[i]);
@@ -14,7 +18,7 @@ void printArrayHorizontally(int array[], int size){
     printf("\n");
 }
 
-void createArray(int array[], int size){
+void populateArray(int array[], int size){
     for(int i = 0 ; i < size ; i++){
         *(array+i) = rand()%100;
     }
@@ -30,4 +34,14 @@ void insertionSorting(int array[], int size){
         }
         array[i+1] = key;
     }
+}
+
+int linearSearch(int array[], int size, int search){
+    for(int i = 0; i<size; i++){
+        if(array[i]==search){
+            return 0;
+            break;            
+        }
+    }
+    return 1;
 }
