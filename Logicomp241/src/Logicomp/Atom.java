@@ -11,7 +11,7 @@ public class Atom extends Formula{
 	}
 	
 	public Boolean Equals(Formula other) {
-		return (other instanceof Atom) || (other.getName()==this.getName());
+		return (other instanceof Atom) && (other.getName()==this.getName());
 	}
 	
 	public int Length() {

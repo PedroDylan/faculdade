@@ -22,7 +22,7 @@ public class And extends Formula{
 	public Boolean Equals(Formula other) {
 		if(other instanceof And) {
 			And Aother = (And)other;
-			return (Aother.left==this.left)||(Aother.right==this.right);
+			return (Aother.left==this.left)&&(Aother.right==this.right);
 		} else {
 			return false;
 		}

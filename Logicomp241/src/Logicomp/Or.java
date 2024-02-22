@@ -22,7 +22,7 @@ public class Or extends Formula {
 	public Boolean Equals (Formula other) {
 		if(other instanceof Or) {
 			Or Oother = (Or) other;
-			return (Oother.left==this.left)||(Oother.right==this.right);
+			return (Oother.left==this.left)&&(Oother.right==this.right);
 		} else {
 			return false;
 		}

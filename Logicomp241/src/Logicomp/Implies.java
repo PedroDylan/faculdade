@@ -22,7 +22,7 @@ public class Implies extends Formula {
 	public Boolean Equals(Formula other) {
 		if(other instanceof Implies) {
 			Implies Iother = (Implies) other;
-			return (Iother.left==this.left) || (Iother.right==this.right);
+			return (Iother.left==this.left) && (Iother.right==this.right);
 		} else {
 			return false;
 		}
