@@ -2,6 +2,7 @@ package Logicomp;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Dictionary;
 import java.util.List;
 
 public class Not extends Formula{
@@ -52,6 +53,10 @@ public class Not extends Formula{
 			Not result = new Not(inner.Substituicao(B,C));
 			return result;
 		}
+	}
+	
+	public Boolean TruthValue(Dictionary<Formula,Boolean> Interpretation) {
+		return !Interpretation.get(this.inner);
 	}
 	
 	

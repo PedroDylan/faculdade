@@ -2,6 +2,7 @@ package Logicomp;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Dictionary;
 import java.util.List;
 
 public class And extends Formula{
@@ -79,5 +80,12 @@ public class And extends Formula{
 			return result;
 		}
 	}
+	
+	public Boolean TruthValue(Dictionary<Formula,Boolean> Interpretation) {
+		return ( Interpretation.get(this.left)&&Interpretation.get(this.right));
+	}
+	
+	
+	
 	
 }

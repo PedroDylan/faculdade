@@ -1,5 +1,8 @@
 package Logicomp;
 
+import java.util.Dictionary;
+import java.util.Hashtable;
+
 public class Teste {
 	public static void main(String[] args) {
 		
@@ -18,15 +21,19 @@ public class Teste {
 		Or cod = new Or(c,d);
 		Or ncond = new Or(nc,nd);
 		
-		And formula1 = new And(aonb,cod);
-		And formula2 = new And(aob,ncond);
-		Or formula3 = new Or(formula1,formula2);
+		And aeb = new And(a,b);
 		
-		System.out.println(formula3);
-		System.out.println(formula3.IsNegationNormalForm());
-		System.out.println(formula3.IsDNNF());
 		
-	
+		Dictionary<Formula,Boolean> interpretation1 = new Hashtable<Formula, Boolean>();
+		interpretation1.put(a,true);
+		interpretation1.put(b,false);
+		interpretation1.put(c,false);
+		interpretation1.put(d,false);
+		
+		System.out.println(na.TruthValue(interpretation1));
+		System.out.println(nb.TruthValue(interpretation1));
+		System.out.println(aeb.TruthValue(interpretation1));
+		System.out.println(aonb.TruthValue(interpretation1));
 		
 	}
 }

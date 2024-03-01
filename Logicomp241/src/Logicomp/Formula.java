@@ -2,6 +2,8 @@ package Logicomp;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Dictionary;
+import java.util.Hashtable;
 import java.util.List;
 
 public abstract class Formula {
@@ -19,18 +21,18 @@ public abstract class Formula {
 	}
 	
 	public Formula[] Atoms(){
-		Formula[] subformulas = this.Subformulas();
-		List<Formula> listatoms = new ArrayList<Formula>();
+		Formula[] subformulas = this.Subformulas();            //Criando array de subformulas
+		List<Formula> listatoms = new ArrayList<Formula>();    //Alocando memória para lista de átomos
 		
-		for(int i=0; i< subformulas.length; i++) {
-			if((subformulas[i] instanceof Atom) && (!listatoms.contains(subformulas[i]))) {
-				listatoms.add(subformulas[i]);
-			}
+		for(int i=0; i< subformulas.length; i++) {             //Iterando pelo array e achando os 
+			if((subformulas[i] instanceof Atom) && (!listatoms.contains(subformulas[i]))) { 
+				listatoms.add(subformulas[i]);                 //átomos que Não estão presentes na lista 
+			}                                                  //para evitar duplicatas   
 		}
 		
-		Formula[] resultfinal = new Formula[listatoms.size()]; 
-		resultfinal = listatoms.toArray(resultfinal);
-		return resultfinal;
+		Formula[] resultfinal = new Formula[listatoms.size()]; //Alocando memória para o array de 
+		resultfinal = listatoms.toArray(resultfinal);          //átomos e convertendo a lista para
+		return resultfinal;									   //o array de resultado
 	}
 	
 	public int NumberOfAtoms() {
@@ -43,20 +45,20 @@ public abstract class Formula {
 		
 		for(int i = 0; i<this.Subformulas().length; i++) {
 			
-			if(this.Subformulas()[i] instanceof Implies) {
-				result = false;
+			if(this.Subformulas()[i] instanceof Implies) {     //NNF permite apenas disjunções
+				result = false;								   //e conjunções como operadores binários
 				break;
 			}
 			
 			
-			if(this.Subformulas()[i] instanceof Not) {
+			if(this.Subformulas()[i] instanceof Not) {		   //Adicionar cada not na lista
 				listanots.add(this.Subformulas()[i]);
 			}
 		}
 		
-		for(Formula f : listanots) {
-			Not notf = (Not) f;
-			if (!(notf.inner instanceof Atom)) {
+		for(Formula f : listanots) {						   //Iterar pela lista e buscar
+			Not notf = (Not) f;								   //Apenas os casos nos quais a negação se 
+			if (!(notf.inner instanceof Atom)) {			   //aplica somente em átomos
 				result = false;
 			}
 		}
@@ -67,7 +69,7 @@ public abstract class Formula {
 	public int NumberOfBinaryConectives() {
 		int contador = 0;
 		
-		for(int i = 0; i<this.Subformulas().length; i++) {
+		for(int i = 0; i<this.Subformulas().length; i++) {      
 			if (this.Subformulas()[i] instanceof And ||
 				this.Subformulas()[i] instanceof Or  ||
 				this.Subformulas()[i] instanceof Implies) {
@@ -79,9 +81,9 @@ public abstract class Formula {
 	}
 	
 	public Boolean IsLiteral() {
-		if(this instanceof Not) {
-			Not nthis = (Not) this;
-			return nthis.inner instanceof Atom;
+		if(this instanceof Not) {								//Literais são definidos como atomos 
+			Not nthis = (Not) this;								//Ou negações de átomos
+			return nthis.inner instanceof Atom;					
 		} else {
 			return this instanceof Atom;
 		}
@@ -176,10 +178,12 @@ public abstract class Formula {
 		return result;
 	}
 	
+	public abstract Boolean PartialTruthValue(Hashtable<Formula,Boolean> Interpretation) throws NullValueException;
+	public abstract Boolean TruthValue(Dictionary<Formula,Boolean> Interpretation);
+	public abstract Boolean Equals(Formula other);
 	public abstract Formula Substituicao(Formula B, Formula C);
 	public abstract Formula[] Subformulas();
 	public abstract String toString();
-	public abstract Boolean Equals(Formula other);
 	public abstract int NumeroConectivos();
 	public abstract int Length();
 	

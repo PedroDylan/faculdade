@@ -2,6 +2,7 @@ package Logicomp;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Dictionary;
 import java.util.List;
 
 public class Or extends Formula {
@@ -59,6 +60,10 @@ public class Or extends Formula {
 			Or result = new Or(SubLeft,SubRight);
 			return result;
 		}
+	}
+	
+	public Boolean TruthValue(Dictionary<Formula,Boolean> Interpretation) {
+		return ( Interpretation.get(this.left) || Interpretation.get(this.right));
 	}
 	
 }
