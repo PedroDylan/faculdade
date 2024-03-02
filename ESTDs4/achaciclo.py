@@ -1,4 +1,4 @@
-from linkedlist import LinkedList
+from Linkedlist import LinkedList
 from Node import Node
 
 def achaciclo(Lista):

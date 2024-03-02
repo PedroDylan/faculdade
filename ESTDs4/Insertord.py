@@ -1,5 +1,5 @@
 from Node import Node
-from linkedlist import LinkedList
+from Linkedlist import LinkedList
 
 def insereOrd(Head, inteiro):
     newNode = Node(inteiro)
