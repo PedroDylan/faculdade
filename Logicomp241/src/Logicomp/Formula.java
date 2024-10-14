@@ -178,7 +178,7 @@ public abstract class Formula {
 		return result;
 	}
 	
-	public abstract Boolean PartialTruthValue(Hashtable<Formula,Boolean> Interpretation) throws NullValueException;
+	//public abstract Boolean PartialTruthValue(Hashtable<Formula,Boolean> Interpretation) throws NullValueException;
 	public abstract Boolean TruthValue(Dictionary<Formula,Boolean> Interpretation);
 	public abstract Boolean Equals(Formula other);
 	public abstract Formula Substituicao(Formula B, Formula C);

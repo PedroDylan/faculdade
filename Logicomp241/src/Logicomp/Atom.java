@@ -1,5 +1,8 @@
 package Logicomp;
 
+import java.util.Dictionary;
+import java.util.Hashtable;
+
 public class Atom extends Formula{
 
 	public Atom(String name) {
@@ -39,5 +42,11 @@ public class Atom extends Formula{
 			return this;
 		}
 	}
+	
+	public Boolean TruthValue(Dictionary<Formula,Boolean> Interpretation) {
+		return Interpretation.get(this);
+	}
+	
+
 	
 }
