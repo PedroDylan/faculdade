@@ -48,10 +48,62 @@ def isNNF(formula):
         return isinstance(formula.inner,Atom)
     elif(isinstance(formula,And) or isinstance(formula,Or)):
         return isNNF(formula.left) and isNNF(formula.right)
+
+def substitution(formula,exe,ins):
+    if(isinstance(formula,Atom) and formula != exe):
+        return formula
+    elif (formula == exe):
+        return ins
+    elif(isinstance(formula,Not)):
+        sub = substitution(formula.inner,exe,ins)
+        return Not(sub)
+    elif(isinstance(formula,And)):
+        sub_l = substitution(formula.left,exe,ins)
+        sub_r = substitution(formula.right,exe,ins)
+        return And(sub_l,sub_r)
+    elif(isinstance(formula,Or)):
+        sub_l = substitution(formula.left,exe,ins)
+        sub_r = substitution(formula.right,exe,ins)
+        return Or(sub_l,sub_r)
+    elif(isinstance(formula,Implies)):
+        sub_l = substitution(formula.left,exe,ins)
+        sub_r = substitution(formula.right,exe,ins)
+        return Implies(sub_l,sub_r)
     
+def numberOfAtoms(formula):
+        if (isinstance(formula,Atom)):
+            return 1 
+        elif(isinstance(formula,Not)):
+            return numberOfAtoms(formula.inner)
+        elif(isinstance(formula,And) or isinstance(formula,Or) or isinstance(formula,Implies)):
+            return numberOfAtoms(formula.left) + numberOfAtoms(formula.right)
 
+def isLiteral(formula):
+    if isinstance(formula,Atom):
+        return True
+    elif isinstance(formula,Not):
+        return isinstance(formula.inner,Atom)
+    elif isinstance(formula,And) or isinstance(formula,Or) or isinstance(formula,Implies):
+        return False
 
-
-
-
-
+def isClause(formula):
+    #if isinstance(formula,Atom):
+    #    return True
+    #elif isinstance(formula,Not):
+    #    return isinstance(formula.inner,Atom)
+    if (isinstance(formula,Atom) or isinstance(formula,Not)):
+        return isLiteral(formula)    
+    elif(isinstance(formula,And) or isinstance(formula,Implies)):
+        return False
+    elif isinstance(formula,Or):
+        return (isClause(formula.left) or isLiteral(formula.left)) and (isClause(formula.right) or isLiteral(formula.right))
+    
+def isCNF(formula):
+    if isinstance(formula,Atom):
+        return True
+    elif isinstance(formula,Not):
+        return isClause(formula.inner)
+    elif isinstance(formula,Or) or isinstance(formula,Implies):
+        return False
+    elif isinstance(formula,And):
+        return (isCNF(formula.left) or isClause(formula.left)) and (isCNF(formula.right) or isClause(formula.right)) 

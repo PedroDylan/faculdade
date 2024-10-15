@@ -4,22 +4,26 @@ from Not import Not
 from And import And
 from Functions import *
 
-a = Atom("a")
-c = Atom("c")
-aIc = Implies(a,c)
-na = Not(a)
-nc = Not(c)
-ainc = Implies(a,nc)
-naanc = And(na,nc)
-fg = Implies (ainc,naanc)
+p = Atom("p")
+np = Not(p)
+q = Atom("q")
+nq = Not(q)
+r = Atom("r")
+nr = Not(r) 
 
-print(a)
-print(na)
-print(aIc)
-print(ainc)
-print(naanc)
-print(fg)
+f1 = Or(Or(np,q),r)
+print(f1)
 
-print(isNNF(fg))
-print(isNNF(naanc))
-print(isNNF(na))
+f2 = Or(Or(np,nq),p)
+print(f2)
+
+f3 = And(f1,f2)
+f4 = And(p,f3)
+
+print (f4)
+print(isCNF(f4))
+
+e1 = Or(nq,And(np,r))
+e2 = And(p,e1)
+print(e2)
+print(isCNF(e2))
