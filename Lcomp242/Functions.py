@@ -22,7 +22,6 @@ def subformulas(formula):
         sub2 = subformulas(formula.right)
         return {formula}.union(sub1).union(sub2)
 
-
 def numberOfConectives(formula):
     if isinstance(formula,Atom):
         return 0
@@ -107,3 +106,68 @@ def isCNF(formula):
         return False
     elif isinstance(formula,And):
         return (isCNF(formula.left) or isClause(formula.left)) and (isCNF(formula.right) or isClause(formula.right)) 
+
+def truth_value(formula,interpretation):
+    if isinstance(formula,Atom):
+        return interpretation[formula.name]
+    if isinstance(formula,Not):
+        return not truth_value(formula.inner, interpretation)
+   
+    valor_esquerda = truth_value(formula.left,interpretation)
+    valor_direita = truth_value(formula.right,interpretation)
+    if isinstance(formula,And):
+        return valor_direita and valor_esquerda
+    if isinstance(formula,Or):
+        return valor_direita or  valor_esquerda
+    if isinstance(formula,Implies):
+        if valor_esquerda and not valor_direita:
+            return False
+        return True
+    
+def partial_truth_value(formula,partial_interpretation):
+    if isinstance(formula,Atom):
+        if formula.name in partial_interpretation:
+            return partial_interpretation[formula.name]
+        else:
+            return "Indeterminável"
+        
+    if isinstance(formula,Not):
+        if formula.inner.name in partial_interpretation:
+            return not partial_truth_value(formula.inner,partial_interpretation)
+        else:
+            return "Indeterminável"
+        
+    valor_esquerda = partial_truth_value(formula.left,partial_interpretation)
+    valor_direita = partial_truth_value(formula.right,partial_interpretation)
+
+    if isinstance(formula,And):
+        if (valor_esquerda == False or valor_direita == False):
+            return False
+        elif(valor_esquerda=="Indeterminável" or valor_direita=="Indeterminável"):
+            return "Indeterminável"
+        
+    if isinstance(formula,Or):
+        if (valor_esquerda == True or valor_direita == True):
+            return True
+        elif (valor_esquerda=="Indeterminável" or valor_direita=="Indeterminável"):
+            return "Indeterminável"
+
+    if isinstance(formula,Implies):
+        if valor_esquerda == False:
+            return True
+        elif valor_esquerda == True:
+            return valor_direita
+        else:
+            return "Indeterminável"
+        
+
+
+
+
+
+
+
+
+
+
+

@@ -3,6 +3,7 @@ from Implies import Implies
 from Not import Not
 from And import And
 from Functions import *
+from array import *
 
 p = Atom("p")
 np = Not(p)
@@ -11,19 +12,13 @@ nq = Not(q)
 r = Atom("r")
 nr = Not(r) 
 
-f1 = Or(Or(np,q),r)
-print(f1)
+interpretation = {'p':True, 'q':False}
 
-f2 = Or(Or(np,nq),p)
-print(f2)
+print(And(q,r))
+print(partial_truth_value(And(q,r),interpretation))
 
-f3 = And(f1,f2)
-f4 = And(p,f3)
+print(Or(q,r))
+print(partial_truth_value(Or(q,r),interpretation))
 
-print (f4)
-print(isCNF(f4))
-
-e1 = Or(nq,And(np,r))
-e2 = And(p,e1)
-print(e2)
-print(isCNF(e2))
+print(Implies(q,r))
+print(partial_truth_value(Implies(q,r),interpretation))
