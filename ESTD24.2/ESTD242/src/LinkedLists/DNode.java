@@ -28,4 +28,8 @@ public class DNode {
 		this.element = newElement;
 	}
 	
+	public String toString() {
+		return ("[" + this.getElement() + "]");
+	}
+	
 }

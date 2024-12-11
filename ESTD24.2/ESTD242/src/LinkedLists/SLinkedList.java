@@ -48,4 +48,36 @@ public class SLinkedList {
 			this.size--;
 		}
 	}
+	
+	public void invert() {
+		Node current = this.head;
+		Node prev = null;
+		
+		
+		while (current!=null) {
+			Node next = current.getNext();
+			current.setNext(prev);
+			prev = current;
+			current = next;
+		}
+		
+		this.head = prev;
+	}
+	
+	public String toString() {
+		String s = "[";
+		Node i = this.head;
+		
+		while(i!=null) {
+			s += i.getElement();
+			i=i.getNext();
+			if(i!=null) {
+				s+=".";
+			}	
+		}
+		s+="]";
+		return s;
+	}
+	
+	
 }

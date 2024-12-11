@@ -126,12 +126,33 @@ public class DList {
 			if(v!=trailer) {
 				s+=".";
 			}
-			s+="]";
 		}
+		s+="]";
 		return s;
 	}
-
 	
+	//método responsável por encontrar o elemento do meio
+	//fast é o marcador que andará dois nós a cada iteração e 
+	//slo andará um nó a cada iteração, dessa forma quando fast 
+	//chegar ao fim da lista slow estará no meio
+	public DNode encontraMeio() {
+		DNode fast = this.header;
+		DNode slow = this.header;
+		
+		while(fast!=null) {
+			fast = fast.getNext();
+			if(fast==null) {
+				return slow;
+			}
+			fast = fast.getNext();
+			slow = slow.getNext();
+			
+		
+		}
+		
+		
+		return slow;
+	}
 	
 	
 	

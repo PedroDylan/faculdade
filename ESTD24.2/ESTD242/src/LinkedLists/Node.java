@@ -10,6 +10,11 @@ public class Node {
 		this.next = next;
 	}
 	
+	public Node(String element) {
+		this.element=element;
+		this.next=null;
+	}
+	
 	public String getElement() {
 		return this.element;
 	}
@@ -24,6 +29,14 @@ public class Node {
 	
 	public void setNext(Node newNext) {
 		this.next = newNext;
+	}
+	
+	public void recursiveInsertAtEnd(String newValue) {
+		if(this.next==null) {
+			this.next = new Node(newValue);
+		} else {
+			this.next.recursiveInsertAtEnd(newValue);
+		}
 	}
 	
 	
