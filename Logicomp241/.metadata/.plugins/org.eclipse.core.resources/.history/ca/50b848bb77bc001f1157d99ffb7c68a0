@@ -1,0 +1,9 @@
+package pilhas;
+
+public class GenericNode<E> {
+	
+	private E element;
+	private 
+	
+	
+}

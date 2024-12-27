@@ -1,0 +1,15 @@
+package LinkedLists;
+
+public class main {
+
+	public static void main(String[] args) {
+		DList lista = new DList();
+		DNode no1 = new DNode("1",null,null);
+		
+		lista.addFirst(no1);
+		System.out.println(lista.toString());
+		
+		
+	}
+	
+}

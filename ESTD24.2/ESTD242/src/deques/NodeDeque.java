@@ -47,7 +47,6 @@ public class NodeDeque<E> implements Deque<E> {
 		return firstElement;
 	}
 	
-	
 	public E getLast() throws EmptyDequeException{
 		if(this.isEmpty()) {throw new EmptyDequeException("Deque is empty");}
 		return (E)this.trailer.getPrev().getElement();
@@ -77,7 +76,21 @@ public class NodeDeque<E> implements Deque<E> {
 		this.size++;
 	}
 	
-	
+	public String toString() {
+		String s = "[";
+		DNode<E> i = this.header.getNext();
+		
+		while (i!=this.trailer) {
+			s += i.getElement().toString();
+			i = i.getNext();
+			if(i!=this.trailer) {
+				 s+=".";
+			}
+		}
+		s+="]";
+		return s;
+		
+	}
 	
 	
 }

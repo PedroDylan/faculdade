@@ -3,10 +3,10 @@ package deques;
 public class DNode<E> {
 	
 	protected E element;
-	protected DNode next;
-	protected DNode prev;
+	protected DNode<E> next;
+	protected DNode<E> prev;
 	
-	public DNode(E e, DNode prev, DNode next) {
+	public DNode(E e, DNode<E> prev, DNode<E> next) {
 		this.element = e;
 		this.prev = prev;
 		this.next = next;
@@ -20,13 +20,13 @@ public class DNode<E> {
 	
 	public E getElement() {return this.element;}
 	
-	public DNode getPrev() {return this.prev;}
-	public void setPrev(DNode newPrev) {
+	public DNode<E> getPrev() {return this.prev;}
+	public void setPrev(DNode<E> newPrev) {
 		this.prev = newPrev;
 	}
 	
-	public DNode getNext() {return this.next;}
-	public void setNext(DNode newNext) {
+	public DNode<E> getNext() {return this.next;}
+	public void setNext(DNode<E> newNext) {
 		this.next = newNext;
 	}
 	

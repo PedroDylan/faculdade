@@ -1,0 +1,6 @@
+INDEX VERSION 1.134+C:\Users\pedro\OneDrive\Documentos\matrix\faculdade\Logicomp241\.metadata\.plugins\org.eclipse.jdt.core
+1751952729.index
+1067094681.index
+1987390607.index
+1865797976.index
+2316296714.index
