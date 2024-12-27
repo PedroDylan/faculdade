@@ -30,8 +30,6 @@ public class GenericNode<E> {
 		this.next = newNext;
 	}
 	
-	public String toString() {
-		return (this.getElement().toString());
-	}
+	
 	
 }

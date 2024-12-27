@@ -1,5 +1,4 @@
 package pilhas;
-import filas.NodeQueue;
 
 public class NodeStack<E> implements Stack<E> {
 	
@@ -35,7 +34,6 @@ public class NodeStack<E> implements Stack<E> {
 		return this.top.getElement();
 	}
 	
-	//Remove o topo e o retorna
 	//Armazena o topo em uma variável temporária e remove as
 	//referências a ele na pilha para passar por cima dele
 	public E pop() throws EmptyStackException{
@@ -48,6 +46,7 @@ public class NodeStack<E> implements Stack<E> {
 		return temp;
 	}
 	
+	
 	//Método recursivo para remover todos os elementos da pilha
 	public void recursiveRemoveAll() {
 		if(this.isEmpty()) {
@@ -59,7 +58,7 @@ public class NodeStack<E> implements Stack<E> {
 	
 	public String toString() {
 		String s = "[";
-		GenericNode<E> i = this.top;
+		GenericNode i = this.top;
 		
 		while(i!=null) {
 			s += i.getElement().toString();
@@ -72,27 +71,6 @@ public class NodeStack<E> implements Stack<E> {
 		return s;
 	}
 	
-	public boolean containsElement(E search) {
-		NodeQueue<E> queue = new NodeQueue<E>();
-		boolean found = false;
-		
-		while(!this.isEmpty()) {
-			E top = this.top.getElement();
-			if(top == search) {
-				found = true;
-			}
-			queue.enqueue(top);
-		}
-		
-		for (int i = 0; i<this.size();i++ ) {
-			this.push(queue.dequeue());
-			queue.enqueue(this.pop());
-			this.push(queue.dequeue());
-		}
-		
-		return found;
-		
-	}
 
 
 }

@@ -1,7 +1,0 @@
-package filas;
-
-public class EmptyQueueException extends Exception {
-	public EmptyQueueException(String error) {
-		super(error);
-	}
-}

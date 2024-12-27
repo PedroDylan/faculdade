@@ -12,13 +12,11 @@ public class NodeQueue<E> implements Queue<E> {
 		return (this.size==0);
 	}
 	
-	//Retorna o elemento do nó no começo da fila
 	public E front() throws EmptyQueueException{
 		if(this.size==0) {throw new EmptyQueueException("Queue is empty");}
 		return this.head.getElement();
 	}
 	
-	//Insere um novo elemento no começo da fila
 	public void enqueue(E element) {
 		GenericNode<E> node = new GenericNode<E>();
 		node.setElement(element);
@@ -36,7 +34,6 @@ public class NodeQueue<E> implements Queue<E> {
 		size++;
 	}
 	
-	//Retorna o elemento da frente da fila e o remove
 	public E dequeue() throws EmptyQueueException{
 		if(this.size==0) {throw new EmptyQueueException("Queue is empty");}
 		E temp = this.head.getElement();
@@ -49,22 +46,6 @@ public class NodeQueue<E> implements Queue<E> {
 			this.tail = null;
 		}
 		return temp;
-	}
-	
-	public String toString() {
-		String s = "[";
-		GenericNode<E> i = this.head;
-		
-		while(i!=null) {
-			s += i.getElement().toString();
-			i = i.getNext();
-			if(i!=null) {
-				s+=".";
-			}
-		}
-		s+="]";
-		return s;
-		
 	}
 	
 	

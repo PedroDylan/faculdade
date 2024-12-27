@@ -1,5 +1,0 @@
-package deques;
-
-public class EmptyDequeException extends Exception {
-
-}

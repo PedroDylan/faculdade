@@ -1,0 +1,14 @@
+{
+    "python.testing.pytestArgs": [
+        "apostila_python"
+    ],
+    "python.testing.unittestEnabled": true,
+    "python.testing.pytestEnabled": false,
+    "python.testing.unittestArgs": [
+        "-v",
+        "-s",
+        "./project",
+        "-p",
+        "*test*.py"
+    ]
+}
