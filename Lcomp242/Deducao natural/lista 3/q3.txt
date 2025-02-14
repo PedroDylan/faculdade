@@ -1,0 +1,13 @@
+//∃xP(x) ∨ ∃xQ(x) ⊢ ∃x(P(x) ∨ Q(x)) 
+1.ExP(x) | ExQ(x)		pre
+2.	{ExP(x)			hip
+3.		{a P(a)		hip
+4.		 P(a)|Q(a)	|i3
+5. 	 	 Ex(P(x)|Q(x))	Ei4}
+6.	 Ex(P(x)|Q(x))		Ee2,3-5}
+7.	{ExQ(x)			hip
+8.		{b Q(b)		hip
+9.		 P(b)|Q(b)	|i8
+10.		 Ex(P(x)|Q(x))	Ei9}
+11.	 Ex(P(x)|Q(x))		Ee7,8-10}
+12.Ex(P(x)|Q(x))		|e1,2-6,7-11

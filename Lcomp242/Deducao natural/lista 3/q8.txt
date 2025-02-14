@@ -1,0 +1,8 @@
+//∀x(Q(y) → P(x)) ⊢ Q(y) → ∀xP(x) 
+1.Q(y)-> AxP(x)		pre
+2.	{a
+3. 		{Q(y)	hip
+4.		 AxP(x)	->e1,3
+5.	 	 P(a)	Ae4}
+6.	 Q(y)->P(a)	->i3-5}
+7.Ax(Q(y)->P(x))	Ai2-6

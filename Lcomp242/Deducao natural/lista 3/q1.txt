@@ -1,0 +1,10 @@
+//∀xP(x) ∨ Q(y) ⊢ ∀x(P(x) ∨ Q(y)) 
+1.AxP(x) | Q(y)		 	pre
+2.	{a	
+3.		{AxP(x)		hip
+4.		 P(a)		Ae3
+5.		 P(a)|Q(y)	|i4}
+6.		{Q(y)		hip
+7.		 P(a)|Q(y)	|i6}
+8.	 P(a)|Q(y)		|e1,3-5,6-7}
+9.Ax(P(x)|Q(y))			Ai2-8

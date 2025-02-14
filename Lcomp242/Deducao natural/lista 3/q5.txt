@@ -1,0 +1,8 @@
+//∃x(P(x) ∧ Q(z)) ⊢ ∃xP(x) ∧ Q(z)
+1.Ex(P(x)&Q(z))			pre
+2.	{a P(a)&Q(z)		hip
+3.	 Q(z)			&e2
+4.	 P(a)			&e2
+5.	 ExP(x)			Ei4
+6.	 ExP(x)&Q(z)		&i3,5}
+7.ExP(x)&Q(z)			Ee1,2-6
