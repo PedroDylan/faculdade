@@ -1,0 +1,8 @@
+//∃x(P(x) → Q(y)) ⊢ ∀xP(x) → Q(y)
+1.Ex(P(x)->Q(y))		pre
+2.	{a P(a)->Q(y)		hip
+3.		{AxP(x)		hip
+4.		 P(a)		Ae3
+5.		 Q(y)		->e2,4}
+6.	 AxP(x)->Q(y)		->i3-5}
+7.AxP(x)->Q(y)			Ee1,2-6
