@@ -36,7 +36,7 @@ def round_robin(processos, quantum, mudança_contexto=1):
             #o processo na lista de prontos  
             if p.tempo_restante ==0:
                 p.tempo_finalizacao = tempo_atual
-                p.tempo_retorno = p.tempo_finalizacao - p.tempo_chegada
+                p.tempo_retorno = p.tempo_finalizacao - p.chegada
                 completos.append(p)
             else:
                 fila_prontos.append(p)
