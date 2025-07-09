@@ -26,6 +26,7 @@ class AnimalRoom:
         start_wait = time.time()
         with self.lock:
             while self.state == "Gatos":
+                print("Cachorro esperando (gatos na sala)...")
                 self.dogs_waiting.wait()
             wait_time = time.time() - start_wait
             self.metrics["dog_wait_times"].append(wait_time)
@@ -39,6 +40,7 @@ class AnimalRoom:
         start_wait = time.time()
         with self.lock:
             while self.state == "Cachorros":
+                print("Gato esperando (cachorros na sala)...")
                 self.cats_waiting.wait()
             wait_time = time.time() - start_wait
             self.metrics["cat_wait_times"].append(wait_time)
