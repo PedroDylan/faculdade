@@ -1,0 +1,8 @@
+Implemente um modelo de regressão logística para resolver um problema de classificação binária utilizando um conjunto de dados sintético.
+
+Faça os seguintes passos:
+- Utilize a função make_classification da biblioteca Scikit-Learn para gerar um conjunto de dados com 1000 amostras, 2 variáveis preditoras e 2 classes.
+- Divida os dados em treino (70\%) e teste (30\%).
+- Implemente um modelo de regressão logística.
+- Treine o modelo utilizando gradiente descendente (versão não-estocástica).
+- Avalie a acurácia no conjunto de teste.
