@@ -1,0 +1,11 @@
+package arvores;
+
+public class Depth {
+	public static<E> int depth(Tree<E> tree, Position<E> node) {
+		if(tree.isRoot(node)) {
+			return 0;
+		} else {
+			return (1+depth(tree,tree.parent(node)));
+		}
+	}
+}

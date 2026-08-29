@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="filas.NodeQueue"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="java.util.Iterator"/>
+    <fullyQualifiedTypeName name="arvores.EmptyTreeException"/>
+    <fullyQualifiedTypeName name="arvores.BoundaryViolationException"/>
+    <fullyQualifiedTypeName name="arvores.InvalidPositionException"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,21 @@
+package arvores;
+import Depth;
+
+public class Height {
+	public static<E> int height(Tree<E> tree) {
+		int h = 0;
+		
+		try {
+			for(Position<E> v : tree.positions()) {
+				if(tree.isExternal(v)) {
+					h = Math.max(h,Depth.depth(tree,v));
+				}
+			}
+		} catch (InvalidPositionException exception) {
+			System.out.println("Unexistent node");
+			return -1;
+		}
+		
+		return h;
+	}
+}

@@ -1,0 +1,119 @@
+package LinkedLists;
+
+public class DList {
+
+	protected int size;
+	protected DNode header;
+	protected DNode trailer;
+	
+	public DList() {
+		this.size = 0;
+		this.header = new DNode(null,null,null);
+		this.trailer = new DNode (null,header,null);
+		this.header.setNext(trailer);
+	}
+	
+	public int size() {return this.size;}
+	public boolean isEmpty() {return (this.size == 0);}
+	
+	public DNode getFirst() throws IllegalStateException{
+		if(this.isEmpty()) {
+			throw new IllegalStateException("List is empty");
+		} else {
+			return this.header.getNext();
+		}
+	}
+	
+	public DNode getLast() throws IllegalStateException{
+		if(this.isEmpty()) {
+			throw new IllegalStateException("List is empty");
+		} else {
+			return this.trailer.getPrev();
+		}
+	}
+	
+	public DNode getPrev(DNode node) throws IllegalArgumentException{
+		if(node ==this.header) {
+			throw new IllegalArgumentException("Cannot move back past the header of the list");
+		} else {
+			return node.getPrev();
+		}
+	}
+	
+	public DNode getNext(DNode node) throws IllegalArgumentException{
+		if(node ==this.trailer) {
+			throw new IllegalArgumentException("Cannot move forward past the trailer of the list");
+		} else {
+			return node.getNext();
+		}
+	}
+	
+	public void addBefore(DNode v, DNode insert) throws IllegalArgumentException {
+		DNode previo = getPrev(v);
+		insert.setPrev(previo);
+		insert.setNext(v);
+		v.setPrev(insert);
+		previo.setNext(insert);
+		this.size++;
+	}
+	
+	public void addAfter(DNode v, DNode z) throws IllegalArgumentException {
+		DNode w = getNext(v);
+		z.setPrev(v);
+		z.setNext(w);
+		w.setPrev(z);
+		v.setNext(z);
+		this.size++;
+	}
+	
+	public void addFirst(DNode node) {
+		addAfter(this.header,node);
+	}
+	
+	public void addLast(DNode v) {
+		addBefore(this.trailer,v);
+	}
+	
+	public void remove(DNode v) throws IllegalArgumentException{
+		DNode prev = getPrev(v);
+		DNode next = getNext(v);
+				
+		next.setPrev(prev);
+		prev.setNext(next);
+		
+		v.setPrev(null);
+		v.setNext(null);
+		
+		this.size--;
+	}
+	
+	public boolean hasPrev(DNode v) {return (v!=this.header);}
+	
+	public boolean hasNext(DNode v) {return (v!=this.trailer);}
+	
+	public String toString() {
+		String s = "[";
+		DNode v = header.getNext();
+		while ( v != trailer) {
+			s+= v.getElement();
+			v= v.getNext();
+			if(v!=trailer) {
+				s+=".";
+			}
+			s+="]";
+		}
+		return s;
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
