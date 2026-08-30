@@ -1,6 +1,9 @@
 import numpy as np
 import pandas as pd
 from sklearn.linear_model import LinearRegression
+from sklearn.metrics import r2_score 
+import matplotlib.pyplot as plt
+
 
 def normalizar(x:np.ndarray) -> np.ndarray:
     #Normalizar os dados para que tenham média 0 e desvio padrão 1
@@ -34,7 +37,8 @@ def regression(x:np.ndarray, y:np.ndarray, alpha:float, num_iter:int) -> tuple:
     theta = np.zeros(x.shape[1])
     theta, historico = gradiente_descendente(x, y, theta, alpha, num_iter)
     mse = MSE(x, y, theta)
-    return theta, historico, mse 
+    r2 = r2_score(y, x.dot(theta))
+    return theta, historico, mse , r2
 
 def regressao_com_sklearn(x:np.ndarray, y:np.ndarray) -> tuple:
     model = LinearRegression()
@@ -42,14 +46,15 @@ def regressao_com_sklearn(x:np.ndarray, y:np.ndarray) -> tuple:
     theta = np.concatenate(([model.intercept_], model.coef_))
     predictions = model.predict(x)
     mse = np.mean((predictions - y) ** 2)
-    return theta, mse
+    r2 = r2_score(y, predictions)
+    return theta, mse, r2
 
 if __name__ == "__main__":
-    alpha = 0.01
+    alpha = [0.001,0.003,0.01,0.03,0.1]
     num_iter = 1000
 
-    df_train = pd.read_csv("random-linear-regression/versions/2/train.csv")
-    df_test = pd.read_csv("random-linear-regression/versions/2/test.csv")
+    df_train = pd.read_csv("C:/Users/pedro/OneDrive/Documentos/matrix/faculdade/Rpad26.2/Atv1/random-linear-regression/versions/2/train.csv")
+    df_test = pd.read_csv("C:/Users/pedro/OneDrive/Documentos/matrix/faculdade/Rpad26.2/Atv1/random-linear-regression/versions/2/test.csv")
     #Removendo valores nulos do dataset, caso existam
     df_train = df_train.dropna()
     df_test = df_test.dropna()
@@ -62,12 +67,41 @@ if __name__ == "__main__":
     #Adicionando uma coluna de bias (1s) ao conjunto de dados normalizado para o modelo de regressão
     x_train_com_bias = np.hstack([np.ones((x_train_normalizado.shape[0], 1)), x_train_normalizado])
 
-    theta, historico, mse = regression(x_train_com_bias, y_train, alpha, num_iter)
-    theta_sklearn, mse_sklearn = regressao_com_sklearn(x_train_normalizado, y_train)
 
-    print("Theta do 0:", theta)
-    print("MSE do 0:", mse) 
+    vetor_thetas = []
+    vetor_historicos = []
+    vetor_mse = []
+    vetor_r2 = []
+    for a in alpha:
+        theta_teste, historico_teste, mse_teste, r2_teste = regression(
+            x_train_com_bias, y_train, a, num_iter
+        )
+        vetor_thetas.append(theta_teste)
+        vetor_historicos.append(historico_teste)
+        vetor_mse.append(mse_teste)
+        vetor_r2.append(r2_teste)
+
+    theta_sklearn, mse_sklearn,r2_sklearn = regressao_com_sklearn(x_train_normalizado, y_train)
+
+    print("Theta do 0:", vetor_thetas[-1])
+    print("MSE do 0:", vetor_mse[-1]) 
+    print("R2 do 0:", vetor_r2[-1])
     print("Theta do sklearn:", theta_sklearn)
     print("MSE do sklearn:", mse_sklearn) 
+    print("R2 do sklearn:", r2_sklearn)
+
+
+    for i, (theta, historico) in enumerate(zip(vetor_thetas, vetor_historicos)):
+        plt.plot(range(1, num_iter + 1), historico, label=f"alpha={alpha[i]}")
+
+    plt.xlabel("Iteração")
+    plt.ylabel("MSE (custo)")
+    plt.title("Convergência do Gradiente Descendente")
+    plt.legend()
+    plt.grid(True)
+    plt.show()
+
+
+    
      
    

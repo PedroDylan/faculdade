@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./Atv1/single"
+    ]
+}
