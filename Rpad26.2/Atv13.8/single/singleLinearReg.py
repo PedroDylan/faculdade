@@ -61,7 +61,7 @@ if __name__ == "__main__":
 
     #Separando os dados de treino em x e y, sendo x os atributos e y o alvo
     x_train = df_train.iloc[:, :-1].values.astype(float)
-    y_train = df_train.iloc[:, -1].values.astype(float)   # <- alvo do TREINO
+    y_train = df_train.iloc[:, -1].values.astype(float)   
 
     x_train_normalizado = normalizar(x_train)
     #Adicionando uma coluna de bias (1s) ao conjunto de dados normalizado para o modelo de regressão
